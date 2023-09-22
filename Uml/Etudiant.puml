@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Etudiant{
+-nom: String
+-prenom: String
+-listNotes: HashMap<Matière:String,Note:String>
+}
+
+class HashMap<Matière:String,Coef:String>{}
+class Formation{
+-idfomation:String
+}
+Formation -> HashMap
+
+class TreeMap<Matière:String,idfomation:String>{}
+class GroupeEtudiant{}
+GroupeEtudiant -> TreeMap
+@enduml
