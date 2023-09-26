@@ -7,7 +7,6 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
     private Formation formation;
     private HashMap <String, ArrayList<Double>> listNotes ;//matière notes
 
-
     Etudiant(String nip , String nom , String prenom , Formation formation) throws InvalidIDexception {
         this.listNotes = new HashMap <String, ArrayList<Double>>();
         this.identite = new Identite(nip, nom, prenom);
@@ -19,7 +18,7 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
     pas dans la formation de l’étudiant ?*/
 
     public void adjNote (Double note, String matiere) throws NoteInvalideException {
-        if(this.formation.containsKey(matiere)) {
+        if(this.formation.getListeMatiere().containsKey(matiere)) {
             if (note < 0 || note > 20) {
                 throw new NoteInvalideException();
             } else {
@@ -55,7 +54,7 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
      * Methode qui calcule la moyenne générale de l'étudiant
      * @return sa moyenne générale
      */
-    public double Moygenerale(){
+    public double calculMoyGenerale(){
         Double moy = 0.0;
         for (String matiere : formation.keySet()) {
             Double coef = formation.get(matiere);
