@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Etudiant extends HashMap <String, ArrayList<Double>>{
+public class Etudiant {
 
     private Identite identite ;
     private Formation formation;
@@ -19,7 +19,7 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
     pas dans la formation de l’étudiant ?*/
 
     public void adjNote (Double note, String matiere) throws NoteInvalideException {
-        if(this.formation.containsKey(matiere)) {
+        if(this.formation.getListeMatiere().containsKey(matiere)) {
             if (note < 0 || note > 20) {
                 throw new NoteInvalideException();
             } else {
@@ -56,12 +56,12 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
      */
     public double Moygenerale(){
         Double moy = 0.0;
-        for (String matiere : formation.keySet()) {
-            Double coef = formation.get(matiere);
+        for (String matiere : formation.getListeMatiere().keySet()) {
+            Double coef = formation.getListeMatiere().get(matiere);
             moy += this.calculMoy(matiere)*coef;
 
         }
-        return moy/formation.size();
+        return moy/formation.getListeMatiere().size();
     }
 
 
