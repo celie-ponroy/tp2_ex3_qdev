@@ -2,18 +2,26 @@
 'https://plantuml.com/class-diagram
 
 class Etudiant{
--nom: String
--prenom: String
--listNotes: HashMap<Matière:String,Note:String>
+- identité : Identite
+- listNotes: HashMap<Matière:String,Note:String>
 }
 
 class HashMap<Matière:String,Coef:String>{}
 class Formation{
 -idfomation:String
+- matières: Collection
 }
 Formation -> HashMap
 
 class TreeMap<Matière:String,idfomation:String>{}
-class GroupeEtudiant{}
+class GroupeEtudiant{
+- étudiants : collection
+- groupe: formation?
+}
+class Identite{
+-NIP: String
+-nom: String
+-prenom: String
+}
 GroupeEtudiant -> TreeMap
 @enduml
