@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Etudiant {
+public class Etudiant extends HashMap <String, ArrayList<Double>>{
 
     private Identite identite ;
     private HashMap <String, ArrayList<Double>> listNotes ;//matière notes
 
     Etudiant(String nip , String nom , String prenom ) throws InvalidIDexception {
-        this.listNotes = new HashMap <String, ArrayList<Double>>();
+        this.listNotes = new HashMap();
         this.identite = new Identite(nip, nom, prenom);
     }
 
@@ -20,10 +20,18 @@ public class Etudiant {
             throw new NoteInvalideException();
         }
         else{
+            if(!listNotes.containsKey(matiere))
+                this.listNotes.put(matiere,new ArrayList<Double>());
             listNotes.get(matiere).add(note);
+
         }
 
     }
+
+    public HashMap<String, ArrayList<Double>> getListNotes() {
+        return listNotes;
+    }
+
 
     /*calculer sa moyenne pour une matière, que faire si la matière n’est pas dans la
     formation de l’étudiant ?*/
