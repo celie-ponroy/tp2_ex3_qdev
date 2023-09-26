@@ -19,14 +19,15 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
     pas dans la formation de l’étudiant ?*/
 
     public void adjNote (Double note, String matiere) throws NoteInvalideException {
-        if(note<0 || note>20){
-            throw new NoteInvalideException();
-        }
-        else{
-            if(!listNotes.containsKey(matiere))
-                this.listNotes.put(matiere,new ArrayList<Double>());
-            listNotes.get(matiere).add(note);
+        if(this.formation.containsKey(matiere)) {
+            if (note < 0 || note > 20) {
+                throw new NoteInvalideException();
+            } else {
+                if (!listNotes.containsKey(matiere))
+                    this.listNotes.put(matiere, new ArrayList<Double>());
+                listNotes.get(matiere).add(note);
 
+            }
         }
 
     }
