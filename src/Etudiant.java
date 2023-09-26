@@ -4,11 +4,14 @@ import java.util.HashMap;
 public class Etudiant extends HashMap <String, ArrayList<Double>>{
 
     private Identite identite ;
+    private Formation formation;
     private HashMap <String, ArrayList<Double>> listNotes ;//matière notes
 
-    Etudiant(String nip , String nom , String prenom ) throws InvalidIDexception {
-        this.listNotes = new HashMap();
+
+    Etudiant(String nip , String nom , String prenom , Formation formation) throws InvalidIDexception {
+        this.listNotes = new HashMap <String, ArrayList<Double>>();
         this.identite = new Identite(nip, nom, prenom);
+        this.formation = formation;
     }
 
     /*ajouter une note à un étudiant dans une matière donnée (la note doit être entre 0 et
@@ -45,7 +48,20 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
         }else {
             return -1.0;
         }
+    }
 
+    /**
+     * Methode qui calcule la moyenne générale de l'étudiant
+     * @return sa moyenne générale
+     */
+    public double Moygenerale(){
+        Double moy = 0.0;
+        for (String matiere : formation.keySet()) {
+            Double coef = formation.get(matiere);
+            moy += this.calculMoy(matiere)*coef;
+
+        }
+        return moy/formation.size();
     }
 
 

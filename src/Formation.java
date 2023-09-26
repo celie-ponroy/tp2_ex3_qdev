@@ -4,7 +4,7 @@ import java.util.Objects;
 /**
  * Classe formation : représente une formation (idFormation : identifiant de la formation, listeMatiere : HashMap<matiere -> coeff> )
  */
-public class Formation extends HashMap{
+public class Formation extends HashMap<String, Double>{
     /**
      * déclarations des attributs
      */
@@ -16,7 +16,7 @@ public class Formation extends HashMap{
      */
     Formation(String id){
         this.idFormation =id;
-        this.listeMatiere =new HashMap<String, Double>();
+        this.listeMatiere =new HashMap();
     }
 
     /**
