@@ -10,6 +10,7 @@ public class Etudiant {
     Etudiant(String nip , String nom , String prenom , Formation formation) throws InvalidIDexception {
         this.listNotes = new HashMap <String, ArrayList<Double>>();
         this.identite = new Identite(nip, nom, prenom);
+        this.formation = formation;
     }
 
     /*ajouter une note à un étudiant dans une matière donnée (la note doit être entre 0 et
@@ -43,7 +44,10 @@ public class Etudiant {
     /*calculer sa moyenne pour une matière, que faire si la matière n’est pas dans la
     formation de l’étudiant ?*/
     public double Moygenerale(){
+
         for (String matiere : formation.keySet()) {
+            Double coef = formation.get(matiere);
+
 
         }
     }
