@@ -7,15 +7,30 @@ public class EtudiantTest {
     private Formation formation1;
 
     @BeforeEach
-    void setUp() throws InvalidIDexception {
+    void setUp() throws InvalidIDexception, NoteInvalideException {
+
+        //---------------------------------------- etudiant 1
+        this.etu1=new Etudiant("001", "Jean", "Bon",formation1);
 
         this.formation1= new Formation("BUT informatique");
+
         this.formation1.add("Code",40);
         this.formation1.add("Mathématiques",20);
         this.formation1.add("Reseau",35);
 
-        this.etu1=new Etudiant("001", "Jean", "Bon",formation1);
+        //---------------------------------------- etudiant 2
         this.etu2=new Etudiant("002", "Alain", "Terrieur",formation1);
+
+        this.formation1= new Formation("Medecine");
+
+        this.formation1.add("Biologie",15);
+        this.formation1.add("Chimie",20);
+
+        this.etu2.adjNote(12.0,"Biologie");
+        this.etu2.adjNote(13.0,"Biologie");
+        this.etu2.adjNote(13.5,"Chimie");
+
+        //---------------------------------------- etudiant 3
         this.etu3=new Etudiant("003","Sarah","Croche",null);
 
     }
@@ -26,8 +41,9 @@ public class EtudiantTest {
      */
     @Test
     public void ajouterNote_test1() throws NoteInvalideException {
+
         this.etu1.adjNote(12.4,"Code");
-        assertEquals(12.4,this.etu1.getListNotes().get("Code").get(0),"La note pour NSI doit être de 12.4");
+        assertEquals(12.4,this.etu1.getListNotes().get("Code").get(0),"La note pour Code doit être de 12.4");
     }
 
     /**
@@ -53,5 +69,14 @@ public class EtudiantTest {
         String actualMessage = exceptedMessage.toString();
 
         assertTrue(actualMessage.contains(exceptedMessage));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void calculMoy_test1(){
+        Double res=this.etu2.calculMoy("Biologie");
+        assertEquals(12.5,res,"La moyenne de etu2 en biologie devrait etre de 12.5");
     }
 }

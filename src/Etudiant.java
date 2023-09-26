@@ -47,7 +47,7 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
             return moy/listNotes.get(matiere).size();
         }else {
             return -1.0;
-        }
+        }   
     }
 
     /**
