@@ -26,7 +26,6 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
                 if (!listNotes.containsKey(matiere))
                     this.listNotes.put(matiere, new ArrayList<Double>());
                 listNotes.get(matiere).add(note);
-
             }
         }
 

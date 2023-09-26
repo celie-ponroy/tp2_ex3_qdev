@@ -66,7 +66,7 @@ public class Formation extends HashMap<String, Double>{
      * @param matiere
      * @return
      */
-    public double get(String matiere){
+    public double getCoef(String matiere){
         double res = -1;
         if(matiere!=null && this.listeMatiere.containsKey(matiere))
             res= (double)this.listeMatiere.get(matiere);
