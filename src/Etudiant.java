@@ -41,15 +41,18 @@ public class Etudiant {
         }
     }
 
-    /*calculer sa moyenne pour une matière, que faire si la matière n’est pas dans la
-    formation de l’étudiant ?*/
+    /**
+     * Methode qui calcule la moyenne générale de l'étudiant
+     * @return sa moyenne générale
+     */
     public double Moygenerale(){
-
+        Double moy = 0.0;
         for (String matiere : formation.keySet()) {
             Double coef = formation.get(matiere);
-
+            moy += this.calculMoy(matiere)*coef;
 
         }
+        return moy/formation.size();
     }
 
 
