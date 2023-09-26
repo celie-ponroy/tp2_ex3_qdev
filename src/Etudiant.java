@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Etudiant extends HashMap <String, ArrayList<Double>>{
+public class Etudiant {
 
     private Identite identite ;
     private Formation formation;
@@ -25,7 +25,6 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
                 if (!listNotes.containsKey(matiere))
                     this.listNotes.put(matiere, new ArrayList<Double>());
                 listNotes.get(matiere).add(note);
-
             }
         }
 
@@ -56,12 +55,12 @@ public class Etudiant extends HashMap <String, ArrayList<Double>>{
      */
     public double calculMoyGenerale(){
         Double moy = 0.0;
-        for (String matiere : formation.keySet()) {
-            Double coef = formation.get(matiere);
-            moy += this.calculMoy(matiere)*coef;
+        for (Object matiere :formation.getListeMatiere().keySet()) {
+            double coef = (double) formation.getListeMatiere().get(matiere);
+            moy += this.calculMoy((String) matiere)*coef;
 
         }
-        return moy/formation.size();
+        return moy/formation.getListeMatiere().size();
     }
 
 

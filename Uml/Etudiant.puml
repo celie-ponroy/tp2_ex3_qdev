@@ -3,13 +3,13 @@
 
 class Etudiant{
 - identité : Identite
-- listNotes: HashMap<Matière:String,Note:String>
+- listNotes: HashMap<Matière:String,Note:int>
 }
 
 class HashMap<Matière:String,Coef:String>{}
 class Formation{
 -idfomation:String
-- matières: Collection
+- matières: HashMap
 }
 Formation -> HashMap
 

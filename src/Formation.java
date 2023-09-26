@@ -4,19 +4,19 @@ import java.util.Objects;
 /**
  * Classe formation : représente une formation (idFormation : identifiant de la formation, listeMatiere : HashMap<matiere -> coeff> )
  */
-public class Formation extends HashMap<String, Double>{
+public class Formation {
     /**
      * déclarations des attributs
      */
     private String idFormation;
-    private HashMap listeMatiere;
+    private HashMap <String, Double> listeMatiere;
 
     /**
      * Constructeur Vide
      */
     Formation(String id){
         this.idFormation =id;
-        this.listeMatiere =new HashMap();
+        this.listeMatiere =new HashMap <String, Double>();
     }
 
     /**
@@ -66,7 +66,8 @@ public class Formation extends HashMap<String, Double>{
      * @param matiere
      * @return
      */
-    public double getCoeff(String matiere){
+
+    public double getCoef(String matiere){
         double res = -1;
         if(matiere!=null && this.listeMatiere.containsKey(matiere))
             res= (double)this.listeMatiere.get(matiere);
@@ -75,5 +76,6 @@ public class Formation extends HashMap<String, Double>{
 
     public HashMap getListeMatiere(){
         return this.listeMatiere;
+
     }
 }

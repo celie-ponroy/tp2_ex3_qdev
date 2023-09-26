@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 public class EtudiantTest {
+    
     private Etudiant etu1, etu2, etu3;
     private Formation formation1;
 
