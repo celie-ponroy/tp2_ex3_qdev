@@ -3,12 +3,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 public class EtudiantTest {
+    
     private Etudiant etu1, etu2, etu3;
 
     @BeforeEach
     void setUp() throws InvalidIDexception {
-
-        
 
         this.etu1=new Etudiant("001", "Jean", "Bon");
         this.etu2=new Etudiant("002", "Alain", "Terrieur");
