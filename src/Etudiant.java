@@ -4,9 +4,10 @@ import java.util.HashMap;
 public class Etudiant {
 
     private Identite identite ;
+    private Formation formation;
     private HashMap <String, ArrayList<Double>> listNotes ;//matière notes
 
-    Etudiant(String nip , String nom , String prenom ) throws InvalidIDexception {
+    Etudiant(String nip , String nom , String prenom , Formation formation) throws InvalidIDexception {
         this.listNotes = new HashMap <String, ArrayList<Double>>();
         this.identite = new Identite(nip, nom, prenom);
     }
@@ -37,7 +38,14 @@ public class Etudiant {
         }else {
             return -1.0;
         }
+    }
 
+    /*calculer sa moyenne pour une matière, que faire si la matière n’est pas dans la
+    formation de l’étudiant ?*/
+    public double Moygenerale(){
+        for (String matiere : formation.keySet()) {
+
+        }
     }
 
 
