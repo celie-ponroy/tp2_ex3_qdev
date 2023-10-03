@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Etudiant {
 
@@ -72,5 +73,20 @@ public class Etudiant {
         return moy/formation.getListeMatiere().size();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Etudiant etudiant = (Etudiant) o;
+        return Objects.equals(identite, etudiant.identite) && Objects.equals(formation, etudiant.formation) && Objects.equals(listNotes, etudiant.listNotes);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(identite, formation, listNotes);
+    }
+
+    public Formation getFormation() {
+        return formation;
+    }
 }
