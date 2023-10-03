@@ -101,12 +101,5 @@ public class Etudiant implements Comparable {
 
     }
 
-    @Override
-    public String toString() {
-        return "Etudiant{" +
-                "identite=" + identite +
-                ", formation=" + formation +
-                ", listNotes=" + listNotes +
-                '}';
-    }
+
 }

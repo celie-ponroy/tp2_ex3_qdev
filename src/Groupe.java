@@ -34,4 +34,18 @@ public class Groupe {
                 ", listEtu=" + listEtu +
                 '}';
     }
+    public double calculMoyGenerale(){
+        double res = 0.0;
+        for (Etudiant e: listEtu) {
+            res+= e.calculMoyGenerale();
+        }
+        return  res/listEtu.size();
+    }
+    public double calculMoy(String matiere) {
+        double res = 0.0;
+        for (Etudiant e: listEtu) {
+            res+= e.calculMoy(matiere);
+        }
+        return  res/listEtu.size();
+    }
 }
