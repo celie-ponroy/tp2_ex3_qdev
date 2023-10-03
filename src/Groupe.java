@@ -9,12 +9,29 @@ public class Groupe {
         this.listEtu = new TreeSet<Etudiant>();
     }
     public void ajouter(Etudiant etudiant){
-        if(etudiant.getFormation() == this.formation){
-            listEtu.add(etudiant);
+        if(etudiant != null){
+            if(etudiant.getFormation() == this.formation){
+                listEtu.add(etudiant);
+            }
         }
     }
     public void supprimer(Etudiant etudiant){
             listEtu.remove(etudiant);
     }
 
+    public Formation getFormation() {
+        return formation;
+    }
+
+    public TreeSet<Etudiant> getListEtu() {
+        return listEtu;
+    }
+
+    @Override
+    public String toString() {
+        return "Groupe{" +
+                "formation=" + formation +
+                ", listEtu=" + listEtu +
+                '}';
+    }
 }

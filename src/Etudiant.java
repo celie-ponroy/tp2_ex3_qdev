@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Etudiant {
+public class Etudiant implements Comparable {
 
     private Identite identite ;
     private Formation formation;
@@ -79,5 +79,25 @@ public class Etudiant {
 
     public Formation getFormation() {
         return formation;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Etudiant etu = (Etudiant) o;
+        if(this.identite.getNom() != etu.identite.getNom()){
+            return (this.identite.getNom().compareTo(etu.identite.getNom()));
+        }else{
+            return (this.identite.getPrenom().compareTo(etu.identite.getPrenom()));
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Etudiant{" +
+                "identite=" + identite +
+                ", formation=" + formation +
+                ", listNotes=" + listNotes +
+                '}';
     }
 }

@@ -25,4 +25,25 @@ public class Identite {
     public int hashCode() {
         return Objects.hash(NIP, nom, prenom);
     }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNIP() {
+        return NIP;
+    }
+
+    @Override
+    public String toString() {
+        return "Identite{" +
+                "NIP='" + NIP + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                '}';
+    }
 }
