@@ -35,8 +35,17 @@ public class Etudiant {
     }
 
 
+    @Override
+    public String toString() {
+        return "Etudiant{" +
+                "identite=" + identite +
+                ", formation=" + formation +
+                ", listNotes=" + listNotes +
+                '}';
+    }
+
     /*calculer sa moyenne pour une matière, que faire si la matière n’est pas dans la
-    formation de l’étudiant ?*/
+        formation de l’étudiant ?*/
     public double calculMoy(String matiere){
         if(listNotes.containsKey(matiere)){
             Double moy = 0.0;
