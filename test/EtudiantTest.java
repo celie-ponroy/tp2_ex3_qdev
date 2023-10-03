@@ -5,27 +5,27 @@ import org.junit.jupiter.api.Test;
 public class EtudiantTest {
     
     private Etudiant etu1, etu2, etu3;
-    private Formation formation1;
+    private Formation formation1, formation2;
 
     @BeforeEach
     void setUp() throws InvalidIDexception, NoteInvalideException {
 
         //---------------------------------------- etudiant 1
-        this.etu1=new Etudiant("001", "Jean", "Bon",formation1);
-
         this.formation1= new Formation("BUT informatique");
+
+        this.etu1=new Etudiant("001", "Jean", "Bon",formation1);
 
         this.formation1.add("Code",40);
         this.formation1.add("Mathématiques",20);
         this.formation1.add("Reseau",35);
 
         //---------------------------------------- etudiant 2
-        this.etu2=new Etudiant("002", "Alain", "Terrieur",formation1);
+        this.formation2= new Formation("Medecine");
 
-        this.formation1= new Formation("Medecine");
+        this.etu2=new Etudiant("002", "Alain", "Terrieur",formation2);
 
-        this.formation1.add("Biologie",15);
-        this.formation1.add("Chimie",20);
+        this.formation2.add("Chimie",20);
+        this.formation2.add("Biologie",20);
 
         this.etu2.adjNote(12.0,"Biologie");
         this.etu2.adjNote(13.0,"Biologie");
@@ -78,6 +78,14 @@ public class EtudiantTest {
     @Test
     public void calculMoy_test1(){
         Double res=this.etu2.calculMoy("Biologie");
+        System.out.println(etu2);
         assertEquals(12.5,res,"La moyenne de etu2 en biologie devrait etre de 12.5");
+    }
+
+    @Test
+    public void calculMoy_test2(){
+        Double res=this.etu2.calculMoy("Inconnu");
+        System.out.println(etu2);
+        assertEquals(-1.0,res,"La moyenne de etu2 est inconnu");
     }
 }
