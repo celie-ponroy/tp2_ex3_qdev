@@ -1,13 +1,23 @@
 import java.util.*;
 
 public class Groupe {
+    //déclarations des attributs
     private Formation formation;
     private ArrayList<Etudiant> listEtu ;//formation etudiant
 
+    /**
+     * Constructeur
+     * @param fomation
+     */
     Groupe(Formation fomation){
         this.formation = fomation;
         this.listEtu = new ArrayList<>();
     }
+
+    /**
+     * méthode ajouter : permet d'ajouter un étudiant au groupe
+     * @param etudiant
+     */
     public void ajouter(Etudiant etudiant){
         if(etudiant != null){
             if(etudiant.getFormation() == this.formation){
@@ -15,14 +25,19 @@ public class Groupe {
             }
         }
     }
+
+    /**
+     * méthode supprimer : permet de supprimer un étudiant du groupe
+     * @param etudiant
+     */
     public void supprimer(Etudiant etudiant){
             listEtu.remove(etudiant);
     }
 
-    public Formation getFormation() {
-        return formation;
-    }
-
+    /**
+     * méthode getListeEtu : permet de récuperer l'ensemble des étudiants de la formation
+     * @return
+     */
     public ArrayList<Etudiant> getListEtu() {
         return listEtu;
     }
@@ -55,18 +70,18 @@ public class Groupe {
      */
     public void triAntiAlpha(){
 
-
         List<Etudiant> tempList = new ArrayList<>(listEtu);
 
-        System.out.println("-1-------------"+tempList);
         Collections.sort(tempList,Collections.reverseOrder());
-        System.out.println("-2-------------"+tempList);
 
         listEtu.clear();
-        System.out.println("-3-------------"+listEtu);
         listEtu.addAll(tempList);
-        System.out.println("-4-------------"+listEtu);
     }
+
+    /**
+     * méthode calculMoyGenerale : permet de calculer la moyenne général d'un élève
+     * @return
+     */
     public double calculMoyGenerale(){
         double res = 0.0;
         for (Etudiant e: listEtu) {
@@ -74,6 +89,12 @@ public class Groupe {
         }
         return  res/listEtu.size();
     }
+
+    /**
+     * méthode calculMoy : permet de calculer la moyenne de chaque élève pour un matière donnée
+     * @param matiere
+     * @return
+     */
     public double calculMoy(String matiere) {
         double res = 0.0;
         for (Etudiant e: listEtu) {
@@ -83,6 +104,9 @@ public class Groupe {
     }
 
 
+    /**
+     * méthode triParMerite : permet de trier les élèves selon leurs notes
+     */
     public void triParMerite(){
         TreeSet<Etudiant> triParMerite = new TreeSet<Etudiant>((etu1, etu2) -> Double.compare(etu2.calculMoyGenerale(), etu1.calculMoyGenerale()));
         triParMerite.addAll(this.listEtu);

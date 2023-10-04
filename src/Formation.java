@@ -74,9 +74,12 @@ public class Formation {
         return res;
     }
 
+    /**
+     * méthode getListeMatiere : renvoie la liste des matiere
+     * @return
+     */
     public HashMap getListeMatiere(){
         return this.listeMatiere;
-
     }
 
     @Override

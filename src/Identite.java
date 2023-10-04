@@ -1,10 +1,19 @@
 import java.util.Objects;
 
 public class Identite {
+
+    //déclarations des attributs
     private String NIP;
     private String nom;
     private String prenom;
 
+    /**
+     * Constructeur
+     * @param nip numéro de l'étudiant
+     * @param nom nom de l'étudiant
+     * @param prenom prénom de l'étudiant
+     * @throws InvalidIDexception
+     */
     Identite(String nip, String nom, String prenom) throws InvalidIDexception {
         if(nip == null || nom == null || prenom == null){
             throw new InvalidIDexception();
@@ -32,10 +41,6 @@ public class Identite {
 
     public String getNom() {
         return nom;
-    }
-
-    public String getNIP() {
-        return NIP;
     }
 
     @Override

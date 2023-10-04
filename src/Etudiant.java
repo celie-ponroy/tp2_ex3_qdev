@@ -4,19 +4,31 @@ import java.util.Objects;
 
 public class Etudiant implements Comparable {
 
+    //déclarations des attributs
     private Identite identite ;
     private Formation formation;
     private HashMap <String, ArrayList<Double>> listNotes ;//matière notes
 
+    /**
+     * Constructor
+     * @param nip numero de l'étudiant
+     * @param nom nom de l'étudiant
+     * @param prenom prénom de l'étudiant
+     * @param formation formation de l'étudiant
+     * @throws InvalidIDexception
+     */
     Etudiant(String nip , String nom , String prenom , Formation formation) throws InvalidIDexception {
         this.listNotes = new HashMap <String, ArrayList<Double>>();
         this.identite = new Identite(nip, nom, prenom);
         this.formation = formation;
     }
 
-    /*ajouter une note à un étudiant dans une matière donnée (la note doit être entre 0 et
-    20), que faire si la note n’est pas dans le bon intervalle ou/et si la matière n’est
-    pas dans la formation de l’étudiant ?*/
+    /**
+     * méthode adjNote : permet d'ajouter des notes suivant une matière
+     * @param note note de l'étudiant
+     * @param matiere matière dans laquelle la note est encadrée
+     * @throws NoteInvalideException
+     */
 
     public void adjNote (Double note, String matiere) throws NoteInvalideException {
         if(this.formation.getListeMatiere().containsKey(matiere)) {
@@ -31,12 +43,22 @@ public class Etudiant implements Comparable {
 
     }
 
+    /**
+     * méthode getListNotes : permet de renvoyer la liste des notes de l'élève
+     * @return listNotes
+     */
     public HashMap<String, ArrayList<Double>> getListNotes() {
         return listNotes;
     }
 
     /*calculer sa moyenne pour une matière, que faire si la matière n’est pas dans la
         formation de l’étudiant ?*/
+
+    /**
+     * méthode calculMoy : permet de calculer la moyenne de l'élève suivant une matière en paramètre
+     * @param matiere
+     * @return la moyenne de l'élève
+     */
     public double calculMoy(String matiere){
         if(listNotes.containsKey(matiere)){
             Double moy = 0.0;
@@ -88,9 +110,7 @@ public class Etudiant implements Comparable {
         }else{
             return (this.identite.getPrenom().compareTo(etu.identite.getPrenom()));
         }
-
     }
-
 
     @Override
     public String toString() {
