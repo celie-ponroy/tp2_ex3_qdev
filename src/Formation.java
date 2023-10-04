@@ -81,9 +81,6 @@ public class Formation {
 
     @Override
     public String toString() {
-        return "Formation{" +
-                "idFormation='" + idFormation + '\'' +
-                ", listeMatiere=" + listeMatiere +
-                '}';
+        return "Formation : "+this.idFormation;
     }
 }
