@@ -1,9 +1,10 @@
 import java.util.*;
 
 public class Groupe {
+
     //déclarations des attributs
     private Formation formation;
-    private ArrayList<Etudiant> listEtu ;//formation etudiant
+    private ArrayList<Etudiant> listEtu ;
 
     /**
      * Constructeur
@@ -57,7 +58,7 @@ public class Groupe {
     public void triAlpha(){
 
         List<Etudiant> tempList = new ArrayList<>(listEtu);
-        
+
         Collections.sort(tempList);
 
         listEtu.clear();
