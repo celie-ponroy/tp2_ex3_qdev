@@ -57,9 +57,8 @@ public class Groupe {
     public void triAlpha(){
 
         List<Etudiant> tempList = new ArrayList<>(listEtu);
-        System.out.println("-1-------------"+tempList);
+        
         Collections.sort(tempList);
-        System.out.println("-2-------------"+tempList);
 
         listEtu.clear();
         listEtu.addAll(tempList);
