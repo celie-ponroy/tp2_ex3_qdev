@@ -81,4 +81,11 @@ public class Groupe {
         }
         return  res/listEtu.size();
     }
+
+
+    public void triParMerite(){
+        TreeSet<Etudiant> triParMerite = new TreeSet<Etudiant>((etu1, etu2) -> Double.compare(etu2.calculMoyGenerale(), etu1.calculMoyGenerale()));
+        triParMerite.addAll(this.listEtu);
+        this.listEtu = new ArrayList<Etudiant>(triParMerite);
+    }
 }

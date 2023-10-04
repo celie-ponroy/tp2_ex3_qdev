@@ -95,8 +95,9 @@ public class Etudiant implements Comparable {
     @Override
     public String toString() {
         String res= "Etudiant : "+ identite +"\n"+
-                "Formation : " + formation +
-                "listNotes : ";
+                 formation +
+                "\nlistNotes : "+listNotes;
+
 
         return res+"\n";
     }
