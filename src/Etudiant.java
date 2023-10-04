@@ -35,16 +35,6 @@ public class Etudiant implements Comparable {
         return listNotes;
     }
 
-
-    @Override
-    public String toString() {
-        return "Etudiant{" +
-                "identite=" + identite +
-                ", formation=" + formation +
-                ", listNotes=" + listNotes +
-                '}';
-    }
-
     /*calculer sa moyenne pour une matière, que faire si la matière n’est pas dans la
         formation de l’étudiant ?*/
     public double calculMoy(String matiere){
@@ -103,10 +93,10 @@ public class Etudiant implements Comparable {
 
     @Override
     public String toString() {
-        return "Etudiant{" +
-                "identite=" + identite +
-                ", formation=" + formation +
-                ", listNotes=" + listNotes +
-                '}';
+        String res= "Etudiant : "+ identite +"\n"+
+                "Formation : " + formation +
+                "listNotes : ";
+
+        return res+"\n";
     }
 }

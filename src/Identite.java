@@ -40,10 +40,6 @@ public class Identite {
 
     @Override
     public String toString() {
-        return "Identite{" +
-                "NIP='" + NIP + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                '}';
+        return  nom + " " + prenom;
     }
 }
